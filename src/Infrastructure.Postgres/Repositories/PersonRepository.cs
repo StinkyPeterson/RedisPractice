@@ -24,5 +24,9 @@ public class PersonRepository : IPersonRepository
     {
         return await _context.Persons.Skip(skip).Take(take).ToListAsync();
     }
-    
+
+    public async Task<Person> GetPersonById(Guid id)
+    {
+        return await _context.Persons.FirstOrDefaultAsync(c => c.Id == id);
+    }
 }

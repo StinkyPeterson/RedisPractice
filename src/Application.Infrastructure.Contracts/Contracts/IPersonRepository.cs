@@ -6,4 +6,5 @@ public interface IPersonRepository
 {
     Task CreatePerson(Person person);
     Task<IReadOnlyCollection<Person>> GetPersons(int skip, int take);
+    Task<Person> GetPersonById(Guid id);
 }

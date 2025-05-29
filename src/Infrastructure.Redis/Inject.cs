@@ -6,7 +6,7 @@ namespace Application.Cache.Services;
 
 public static class Inject
 {
-    public static IServiceCollection AddCache(this IServiceCollection serviceCollection)
+    public static IServiceCollection AddRedisCache(this IServiceCollection serviceCollection)
     {
         return serviceCollection
             .AddScoped<ICacheService, RedisService>();

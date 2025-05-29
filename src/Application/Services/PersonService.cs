@@ -24,13 +24,29 @@ public class PersonService : IPersonService
     {
         var cacheKey = $"persons_{skip}_{take}";
         var cached = await _cacheService.GetAsync<IReadOnlyCollection<Person>>(cacheKey);
-        
-        if (cached != null) 
+
+        if (cached != null)
+        {
             return cached;
+        }
 
         var persons = await _personRepository.GetPersons(skip, take);
         await _cacheService.SetAsync(cacheKey, persons, TimeSpan.FromMinutes(5));
         
         return persons;
+    }
+
+    public async Task<Person> GetPersonById(Guid id)
+    {
+        var cached = await _cacheService.GetAsync<Person>(id.ToString());
+        if (cached != null)
+        {
+            return cached;
+        }
+
+        var person = await _personRepository.GetPersonById(id);
+        await _cacheService.SetAsync(id.ToString(), person, TimeSpan.FromMinutes(5));
+
+        return person;
     }
 }

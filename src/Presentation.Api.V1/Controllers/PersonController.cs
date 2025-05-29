@@ -23,9 +23,14 @@ public class PersonController : ControllerBase
     }
     
     [HttpGet("get-persons")]
-    public async Task<ActionResult> GetPersons([FromQuery] int skip, int take)
+    public async Task<ActionResult<IReadOnlyCollection<Person>>> GetPersons([FromQuery] int skip, int take)
     {
         return Ok(await _personService.GetPersons(skip, take));
-    } 
-    
+    }
+
+    [HttpGet("get-by-id")]
+    public async Task<ActionResult<Person>> GetPersonById([FromQuery] Guid id)
+    {
+        return Ok(await _personService.GetPersonById(id));
+    }
 }

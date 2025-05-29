@@ -28,6 +28,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Host.WebApi", "Host.WebApi\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.Redis", "Infrastructure.Redis\Infrastructure.Redis.csproj", "{9692EF59-EBC4-4762-AC4F-AE18087D1B0E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Host.BackgroundService", "Host.BackgroundService\Host.BackgroundService.csproj", "{500E904C-610B-4BD0-B663-BCEFD2EBE37D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +46,7 @@ Global
 		{4CA1E102-A33D-459F-B915-955C88BBA524} = {D011E3D1-4238-42DE-8BF3-99CBE22DA70E}
 		{8D6D6E0D-44B2-4578-89ED-6AB4BD2FDB15} = {948CC0E9-B4A9-45E4-93A3-C85FB1E43EF3}
 		{9692EF59-EBC4-4762-AC4F-AE18087D1B0E} = {289D1ED9-6F90-457C-8992-03E6ED8887EE}
+		{500E904C-610B-4BD0-B663-BCEFD2EBE37D} = {948CC0E9-B4A9-45E4-93A3-C85FB1E43EF3}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{CBBCBC6C-9E5E-4FFC-8019-F947833AB76B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -78,5 +81,9 @@ Global
 		{9692EF59-EBC4-4762-AC4F-AE18087D1B0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9692EF59-EBC4-4762-AC4F-AE18087D1B0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9692EF59-EBC4-4762-AC4F-AE18087D1B0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{500E904C-610B-4BD0-B663-BCEFD2EBE37D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{500E904C-610B-4BD0-B663-BCEFD2EBE37D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{500E904C-610B-4BD0-B663-BCEFD2EBE37D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{500E904C-610B-4BD0-B663-BCEFD2EBE37D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
