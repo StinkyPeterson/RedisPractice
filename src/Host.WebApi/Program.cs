@@ -1,5 +1,7 @@
 using Application;
 using Application.Cache.Services;
+using Coravel;
+using Host.BackgroundService.Job;
 using Infrastructure.Postgres;
 using Infrastructure.Postgres.Context;
 using Microsoft.EntityFrameworkCore;
@@ -33,6 +35,10 @@ builder.Services.AddInfrastructure();
 builder.Services.AddRedisCache();
 builder.Services.AddApplication();
 
+builder.Services.AddScheduler();
+builder.Services.AddTransient<PersonAutofiller>(); 
+
+
 builder.Services.AddControllers()
     .AddApplicationPart(typeof(Presentation.Api.V1.AssemblyReference).Assembly);
 
@@ -40,6 +46,12 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+
+app.Services.UseScheduler(scheduler =>
+{
+    scheduler.Schedule<PersonAutofiller>()
+        .EveryMinute();
+});
 
 if (app.Environment.IsDevelopment())
 {

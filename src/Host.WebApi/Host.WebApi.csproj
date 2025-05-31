@@ -7,6 +7,8 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="Bogus" Version="35.6.3" />
+        <PackageReference Include="Coravel" Version="6.0.2" />
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.15"/>
         <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.11" />
         <PackageReference Include="StackExchange.Redis" Version="2.8.37" />

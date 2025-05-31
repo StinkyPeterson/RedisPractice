@@ -22,16 +22,7 @@ public class PersonService : IPersonService
 
     public async Task<IReadOnlyCollection<Person>> GetPersons(int skip, int take)
     {
-        var cacheKey = $"persons_{skip}_{take}";
-        var cached = await _cacheService.GetAsync<IReadOnlyCollection<Person>>(cacheKey);
-
-        if (cached != null)
-        {
-            return cached;
-        }
-
         var persons = await _personRepository.GetPersons(skip, take);
-        await _cacheService.SetAsync(cacheKey, persons, TimeSpan.FromMinutes(5));
         
         return persons;
     }
